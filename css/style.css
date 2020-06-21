@@ -15,6 +15,7 @@ body {
     padding: 20px;
     margin: 15px;
     width: 300px;
+    background-color: #fff07d;
 }
 
 .box-avatars {
@@ -22,6 +23,7 @@ body {
     border-radius: 60%;
     padding: 20px;
     margin: 15px;
+    background-color: #ffec64;
 }
 
 .box-container {
@@ -114,6 +116,11 @@ input:focus {
     border-image-slice: 1;
 }
 
+textarea {
+    background-color: #ffec64;
+    padding: 10px;
+}
+
 h1>a:link,
 h1>a:visited,
 h1>a:active {
@@ -162,7 +169,7 @@ h1>a:hover {
 
 /*for tablets*/
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 700px) {
     section {
         flex-direction: row;
     }

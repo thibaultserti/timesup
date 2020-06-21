@@ -1,6 +1,7 @@
 body {
     background: rgb(249, 255, 129);
     background: linear-gradient(90deg, rgba(249, 255, 129, 1) 0%, rgba(240, 255, 89, 1) 41%, rgba(255, 243, 52, 1) 100%);
+    font-family: Arial;
 }
 
 .box {
@@ -76,7 +77,8 @@ button:hover {
     background-color: #ffe923;
 }
 
-button:active {
+button:active,
+button:link {
     position: relative;
     top: 1px;
 }
@@ -98,7 +100,23 @@ input:focus {
     border-image-slice: 1;
 }
 
-#news {
+h1>a:link,
+h1>a:visited,
+h1>a:active {
+    text-decoration: none;
+    color: #000;
+    outline: 0;
+}
+
+h1>a:hover {
+    text-decoration: underline;
+    color: #000;
+    outline: 0;
+}
+
+#news:target,
+#apropos:target,
+#rules:target {
     display: block;
 }
 

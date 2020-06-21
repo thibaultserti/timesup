@@ -10,9 +10,7 @@
 </head>
 
 <body>
-    <header>
-        <img src="/img/timesup.png" alt="logo timesup" id="logo"></header>
-    <section>
+        <img src="/img/timesup.png" alt="logo timesup" id="logo">
         <div class="box box-container" >
             <form action="">
                 <input type="text" placeholder="pseudo">

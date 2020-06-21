@@ -4,9 +4,22 @@ body {
     font-family: Arial;
 }
 
+#logo {
+    width: 300px;
+    height: auto;
+}
+
 .box {
     border: 2px solid black;
     border-radius: 4%;
+    padding: 20px;
+    margin: 15px;
+    width: 300px;
+}
+
+.box-avatars {
+    border: 2px solid black;
+    border-radius: 60%;
     padding: 20px;
     margin: 15px;
 }
@@ -15,14 +28,15 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 500px;
     height: 100%;
+    width: 100%;
 }
 
 section {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 #logo {
@@ -127,4 +141,36 @@ h1>a:hover {
 
 #arrow1 {
     transform: rotate(180deg);
+}
+
+
+/*for desktop*/
+
+@media only screen and (min-width: 900px) {
+    section {
+        flex-direction: row;
+    }
+    .box {
+        width: 500px;
+    }
+    #logo {
+        width: 500px;
+        height: auto;
+    }
+}
+
+
+/*for tablets*/
+
+@media only screen and (min-width: 600px) {
+    section {
+        flex-direction: row;
+    }
+    .box {
+        width: 400px;
+    }
+    #logo {
+        width: 400px;
+        height: auto;
+    }
 }

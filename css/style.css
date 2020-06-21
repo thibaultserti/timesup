@@ -5,18 +5,23 @@ body {
 
 .box {
     border: 2px solid black;
-    padding: 15px;
+    border-radius: 4%;
+    padding: 20px;
     margin: 15px;
 }
 
 .box-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
+    width: 500px;
+    height: 100%;
 }
 
 section {
     display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 #logo {
@@ -35,15 +40,71 @@ section {
     width: auto;
 }
 
+p {
+    display: none;
+}
+
+input,
+select,
 button {
     display: block;
     margin: 10px;
-    margin-right: auto;
+    width: 150px;
     margin-left: auto;
+    margin-right: auto;
+}
+
+button {
+    box-shadow: 0px 1px 0px 0px #fff6af;
+    background: linear-gradient(to bottom, #ffec64 5%, #ffe923 100%);
+    background-color: #ffec64;
+    border-radius: 6px;
+    border: 1px solid #e9d202;
+    display: inline-block;
+    cursor: pointer;
+    color: #333333;
+    font-family: Arial;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ffee66;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, #ffe923 5%, #ffec64 100%);
+    background-color: #ffe923;
+}
+
+button:active {
+    position: relative;
+    top: 1px;
+}
+
+input {
+    font-family: inherit;
+    border: 0;
+    border-bottom: 2px solid;
+    outline: 0;
+    font-size: 1.3rem;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    padding-bottom: 6px;
+    border-width: 3px;
+    border-image: linear-gradient(to right, orange, rgb(224, 224, 16));
+    border-image-slice: 1;
+}
+
+#news {
+    display: block;
 }
 
 #avatars-container {
     display: flex;
+    justify-content: center;
 }
 
 #arrow1 {

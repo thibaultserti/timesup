@@ -1,6 +1,16 @@
+:root {
+    --dark-primary-color: #FFA000;
+    --light-primary-color: #FFECB3;
+    --primary-color: #FFC107;
+    --text-icones: #212121;
+    --accent-color: #FFEB3B;
+    --primary-text: #212121;
+    --secondary-text: #757575;
+    --divider-color: #BDBDBD;
+}
+
 body {
-    background: rgb(249, 255, 129);
-    background: linear-gradient(90deg, rgba(249, 255, 129, 1) 0%, rgba(240, 255, 89, 1) 41%, rgba(255, 243, 52, 1) 100%);
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--light-primary-color) 41%, var(--dark-primary-color) 100%);
     font-family: Arial;
 }
 
@@ -10,20 +20,20 @@ body {
 }
 
 .box {
-    border: 2px solid black;
+    border: 2px solid var(--text-icones);
     border-radius: 4%;
     padding: 20px;
     margin: 15px;
     width: 300px;
-    background-color: #fff07d;
+    background-color: var(--accent-color);
 }
 
 .box-avatars {
-    border: 2px solid black;
-    border-radius: 60%;
+    border: 2px solid var(--text-icons);
+    border-radius: 5%;
     padding: 20px;
     margin: 15px;
-    background-color: #ffec64;
+    background-color: var(--light-primary-color);
 }
 
 .box-container {
@@ -72,11 +82,11 @@ button {
 }
 
 button {
-    box-shadow: 0px 1px 0px 0px #fff6af;
-    background: linear-gradient(to bottom, #ffec64 5%, #ffe923 100%);
-    background-color: #ffec64;
+    box-shadow: 0px 1px 0px 0px var(--light-primary-color);
+    background: linear-gradient(to bottom, var(--light-primary-color) 5%, var(--primary-color) 100%);
+    background-color: var(--light-primary-color);
     border-radius: 6px;
-    border: 1px solid #e9d202;
+    border: 1px solid var(--primary-color);
     display: inline-block;
     cursor: pointer;
     color: #333333;
@@ -85,12 +95,12 @@ button {
     font-weight: bold;
     padding: 6px 24px;
     text-decoration: none;
-    text-shadow: 0px 1px 0px #ffee66;
+    text-shadow: 0px 1px 0px var(--light-primary-color);
 }
 
 button:hover {
-    background: linear-gradient(to bottom, #ffe923 5%, #ffec64 100%);
-    background-color: #ffe923;
+    background: linear-gradient(to bottom, var(--light-primary-color) 5%, var(--dark-primary-color) 100%);
+    background-color: var(--dark-primary-color);
 }
 
 button:active,
@@ -112,12 +122,12 @@ input {
 input:focus {
     padding-bottom: 6px;
     border-width: 3px;
-    border-image: linear-gradient(to right, orange, rgb(224, 224, 16));
+    border-image: linear-gradient(to right, var(--dark-primary-color), var(--light-primary-color));
     border-image-slice: 1;
 }
 
 textarea {
-    background-color: #ffec64;
+    background-color: var(--primary-color);
     padding: 10px;
 }
 
@@ -125,13 +135,13 @@ h1>a:link,
 h1>a:visited,
 h1>a:active {
     text-decoration: none;
-    color: #000;
+    color: var(--primary-text);
     outline: 0;
 }
 
 h1>a:hover {
     text-decoration: underline;
-    color: #000;
+    color: var(--primary-text);
     outline: 0;
 }
 

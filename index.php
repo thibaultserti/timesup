@@ -18,7 +18,7 @@ require_once 'header.php'
                 <img src="img/arrow.svg" alt="arrow" class="arrow">
             </div>
             <button>Jouer</button>
-            <button>Créér une partie</button>
+            <button>Créer une partie</button>
         </form>
     </div>
     <div class="box">

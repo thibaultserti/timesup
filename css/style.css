@@ -2,3 +2,50 @@ body {
     background: rgb(249, 255, 129);
     background: linear-gradient(90deg, rgba(249, 255, 129, 1) 0%, rgba(240, 255, 89, 1) 41%, rgba(255, 243, 52, 1) 100%);
 }
+
+.box {
+    border: 2px solid black;
+    padding: 15px;
+    margin: 15px;
+}
+
+.box-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+section {
+    display: flex;
+}
+
+#logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.avatar {
+    height: 100px;
+    width: auto;
+}
+
+.arrow {
+    height: 100px;
+    width: auto;
+}
+
+button {
+    display: block;
+    margin: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#avatars-container {
+    display: flex;
+}
+
+#arrow1 {
+    transform: rotate(180deg);
+}

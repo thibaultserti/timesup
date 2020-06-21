@@ -14,6 +14,10 @@ body {
     font-family: Arial;
 }
 
+h1 {
+    text-align: center;
+}
+
 #logo {
     width: 300px;
     height: auto;
@@ -40,6 +44,27 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    height: 100%;
+    width: 100%;
+}
+
+.avatar {
+    width: 100px;
+    height: auto;
+}
+
+figure {
+    margin: 15px;
+}
+
+figure>figcaption {
+    text-align: center;
+    color: var(--secondary-text);
+}
+
+.avatars {
+    display: flex;
+    flex-wrap: wrap;
     height: 100%;
     width: 100%;
 }
@@ -126,9 +151,15 @@ input:focus {
     border-image-slice: 1;
 }
 
+select {
+    background-color: var(--light-primary-color);
+    padding: 5px;
+}
+
 textarea {
-    background-color: var(--primary-color);
+    background-color: var(--light-primary-color);
     padding: 10px;
+    border-radius: 4%;
 }
 
 h1>a:link,
@@ -143,6 +174,42 @@ h1>a:hover {
     text-decoration: underline;
     color: var(--primary-text);
     outline: 0;
+}
+
+.box-invitation {
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    width: 900px;
+    background-color: var(--accent-color);
+    border: 2px solid;
+    justify-content: space-around;
+}
+
+#link-invitation,
+#link-invitation-hover {
+    margin-top: 5px;
+    text-align: center;
+    flex-grow: 8;
+}
+
+#link-invitation {
+    display: none;
+}
+
+.box-invitation:hover #link-invitation-hover {
+    display: none;
+    cursor: pointer;
+}
+
+.box-invitation:hover #link-invitation {
+    display: block;
+    cursor: pointer;
+}
+
+#button-copy {
+    height: 100%;
+    margin: 0;
 }
 
 #news:target,

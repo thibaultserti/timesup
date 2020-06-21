@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="rabbit.svg"
+   id="svg80"
+   version="1.1"
+   viewBox="0 0 154.67581 176.5361">
+  <metadata
+     id="metadata84">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Fichier 14</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:current-layer="svg80"
+     inkscape:window-maximized="0"
+     inkscape:window-y="0"
+     inkscape:window-x="0"
+     inkscape:cy="142.8599"
+     inkscape:cx="77.337906"
+     inkscape:zoom="5.3208061"
+     showgrid="false"
+     id="namedview82"
+     inkscape:window-height="1030"
+     inkscape:window-width="1019"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0"
+     guidetolerance="10"
+     gridtolerance="10"
+     objecttolerance="10"
+     borderopacity="1"
+     bordercolor="#666666"
+     pagecolor="#ffffff" />
+  <defs
+     id="defs7">
+    <style
+       id="style2">
+      .cls-1, .cls-9 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #f0592b;
+      }
+
+      .cls-3 {
+        fill: #8a603c;
+      }
+
+      .cls-4 {
+        fill: #f3dbbd;
+      }
+
+      .cls-5 {
+        fill: #966a4d;
+      }
+
+      .cls-6 {
+        fill: #3d342f;
+      }
+
+      .cls-7 {
+        fill: #fff;
+      }
+
+      .cls-8 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-9 {
+        stroke: #3d342f;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+    </style>
+    <clipPath
+       id="clip-path">
+      <path
+         id="path4"
+         d="M108.4073,106.6416c4.9658,7.7266,8.4072,27.6211-30.3741,27.6211-38.7832,0-32.1611-20.8154-28.8486-27.8037C47.7979,83.9561,60.9405,66.6065,79.2237,66.6065,97.5079,66.6065,109.1446,83.4932,108.4073,106.6416Z"
+         class="cls-1" />
+    </clipPath>
+    <clipPath
+       id="clipPath88"
+       clipPathUnits="userSpaceOnUse">
+      <rect
+         y="0.0076349024"
+         x="0.17043683"
+         height="154.61925"
+         width="165.37038"
+         id="rect90"
+         style="fill:#00ff00" />
+    </clipPath>
+    <clipPath
+       id="clipPath103"
+       clipPathUnits="userSpaceOnUse">
+      <rect
+         y="-1.6441844"
+         x="-4.2258196"
+         height="156.22639"
+         width="180.25066"
+         id="rect105"
+         style="fill:#00ff00" />
+    </clipPath>
+  </defs>
+  <title
+     id="title9">Fichier 14</title>
+  <g
+     clip-path="url(#clipPath103)"
+     data-name="Calque 2"
+     id="Calque_2">
+    <g
+       id="background">
+      <path
+         id="path11"
+         d="M154.67581,77.3389A77.33791,77.33791,0,1,1,77.3389,0,77.33766,77.33766,0,0,1,154.67581,77.3389Z"
+         class="cls-2" />
+    </g>
+    <g
+       id="object">
+      <g
+         id="g76">
+        <g
+           id="g18">
+          <path
+             id="path14"
+             d="M75.7276,58.3731s-.957,30.0566-6.3535,30.6806c-5.3965.6231-13.1885-28.4219-13.1885-28.4219s-10.419-39.0205,6.4463-40.1933C79.4971,19.2676,75.7276,58.3731,75.7276,58.3731Z"
+             class="cls-3" />
+          <path
+             id="path16"
+             d="M73.0254,58.6836s-.6933,21.7422-4.59659,22.1924c-3.90341.4512-9.53811-20.5576-9.53811-20.5576s-7.3233-33.3701,4.6728-34.2022C75.5586,25.2822,73.0254,58.6836,73.0254,58.6836Z"
+             class="cls-4" />
+        </g>
+        <g
+           id="g24">
+          <path
+             id="path20"
+             d="M82.669,58.3731s.957,30.0566,6.3525,30.6806c5.3965.6231,13.1885-28.4219,13.1885-28.4219s10.4209-39.0205-6.4453-40.1933C78.8995,19.2676,82.669,58.3731,82.669,58.3731Z"
+             class="cls-3" />
+          <path
+             id="path22"
+             d="M85.3711,58.6836s.6924,21.7422,4.59571,22.1924c3.90429.4512,9.53909-20.5576,9.53909-20.5576s7.3232-33.3701-4.6719-34.2022C82.8379,25.2822,85.3711,58.6836,85.3711,58.6836Z"
+             class="cls-4" />
+        </g>
+        <path
+           id="path26"
+           d="M108.4073,106.6416c4.9658,7.7266,8.4072,27.6211-30.3741,27.6211-38.7832,0-32.1611-20.8154-28.8486-27.8037C47.7979,83.9561,60.9405,66.6065,79.2237,66.6065,97.5079,66.6065,109.1446,83.4932,108.4073,106.6416Z"
+           class="cls-5" />
+        <g
+           id="g36">
+          <path
+             id="path28"
+             d="M84.1397,93.1592a6.3003,6.3003,0,1,0,6.3008-6.2998A6.30123,6.30123,0,0,0,84.1397,93.1592Z"
+             class="cls-4" />
+          <g
+             id="g34">
+            <path
+               id="path30"
+               d="M86.4366,93.21a3.74755,3.74755,0,1,0,3.749-3.7471A3.74842,3.74842,0,0,0,86.4366,93.21Z"
+               class="cls-6" />
+            <path
+               id="path32"
+               d="M89.6485,90.1172a1.78516,1.78516,0,1,0,1.7851-1.7852A1.78566,1.78566,0,0,0,89.6485,90.1172Z"
+               class="cls-7" />
+          </g>
+        </g>
+        <g
+           id="g46">
+          <path
+             id="path38"
+             d="M75.0743,92.791a6.29935,6.29935,0,1,1-6.2998-6.2988A6.29895,6.29895,0,0,1,75.0743,92.791Z"
+             class="cls-4" />
+          <g
+             id="g44">
+            <path
+               id="path40"
+               d="M71.8584,93.21a3.74705,3.74705,0,1,1-3.748-3.7471A3.74757,3.74757,0,0,1,71.8584,93.21Z"
+               class="cls-6" />
+            <path
+               id="path42"
+               d="M68.6465,90.1172a1.78515,1.78515,0,1,1-1.7851-1.7852A1.785,1.785,0,0,1,68.6465,90.1172Z"
+               class="cls-7" />
+          </g>
+        </g>
+        <g
+           id="g50"
+           clip-path="url(#clip-path)"
+           class="cls-8">
+          <path
+             id="path48"
+             d="M96.8809,104.8047a36.98415,36.98415,0,0,0-18.0244,4.6592,36.98128,36.98128,0,0,0-18.0244-4.6592c-20.5205,0-37.15329,14.0566-37.15329,34.5771A37.16033,37.16033,0,0,0,78.8565,171.876a37.16034,37.16034,0,0,0,55.1777-32.4942C134.0342,118.8613,117.4004,104.8047,96.8809,104.8047Z"
+             class="cls-4" />
+        </g>
+        <path
+           id="path52"
+           d="M86.459,109.4063c0,2.3769-5.0683,6.081-7.0957,6.081s-8.1094-3.7041-8.1094-6.081c0-2.3799,3.4043-4.3096,7.6026-4.3096S86.459,107.0264,86.459,109.4063Z"
+           class="cls-6" />
+        <g
+           id="g58">
+          <path
+             id="path54"
+             d="M71.5166,124.1309c-1.96579,0-4.1474-.9717-6.50479-2.9004a.736.736,0,1,1,.93159-1.1397c2.7578,2.2578,5.1357,3.0303,7.0625,2.2979,3.8398-1.46,4.9775-8.332,4.9873-8.4014a.73613.73613,0,0,1,1.4541.2305c-.0508.3183-1.291,7.7851-5.9189,9.5459A5.573,5.573,0,0,1,71.5166,124.1309Z"
+             class="cls-6" />
+          <path
+             id="path56"
+             d="M85.17581,124.7744a4.64254,4.64254,0,0,1-1.747-.334c-4.39951-1.7607-5.22371-9.9209-5.25691-10.2675a.73583.73583,0,0,1,1.46491-.1407c.20209,2.1143,1.37789,7.8575,4.33979,9.043,1.625.6514,3.6963-.1025,6.1553-2.2353a.73589.73589,0,0,1,.9638,1.1123C88.9307,123.8311,86.9463,124.7744,85.17581,124.7744Z"
+             class="cls-6" />
+        </g>
+        <g
+           id="g66">
+          <path
+             id="path60"
+             d="M95.59481,114.1836s6.00779-5.8848,23.66309-8.584"
+             class="cls-9" />
+          <path
+             id="path62"
+             d="M96.6104,116.4512s7.2998-4.1777,25.06641-2.3262"
+             class="cls-9" />
+          <path
+             id="path64"
+             d="M96.9141,119.251s8.0508-2.4326,24.9482,3.3545"
+             class="cls-9" />
+        </g>
+        <g
+           id="g74">
+          <path
+             id="path68"
+             d="M59.0821,113.4473s-6.0078-5.8858-23.6641-8.5811"
+             class="cls-9" />
+          <path
+             id="path70"
+             d="M58.0655,115.7139S50.7657,111.5371,33,113.3887"
+             class="cls-9" />
+          <path
+             id="path72"
+             d="M57.76181,118.5137S49.711,116.083,32.8125,121.8701"
+             class="cls-9" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

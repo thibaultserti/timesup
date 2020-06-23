@@ -1,10 +1,7 @@
-<?php
-require_once 'header.php'
-?>
 <div>
     <h1>Invite tes amis !</h1>
     <div class="box-timer">
-        <img src="/img/timer.svg">
+        <img src="img/timer.svg">
         <span> 30s </span>
 
     </div>
@@ -13,19 +10,23 @@ require_once 'header.php'
     <div class="box">
         <table>
             <tbody>
-                <tr>
-                    <td class="td-rank">1</td>
-                    <td class="td-points">Erik <br> 2200pts</td>
-                    <td class="td-speak"><img src="/img/speaker.svg" id="speaker"></td>
-                    <td class="td-avatar"><img src="/img/avatars/pig.svg" class="avatar"></td>
-                </tr>
-                <tr>
-                    <td class="td-rank">2</td>
-                    <td class="td-points">Alvin<br> 2100pts</td>
-                    <td class="td-speak"></td>
-                    <td class="td-avatar"><img src="/img/avatars/dog.svg" class="avatar"></td>
-                </tr>
-
+				<?php
+					echo inGameUserList($_SESSION['gameId']);
+					/*
+					<tr>
+						<td class="td-rank">1</td>
+						<td class="td-points">Erik <br> 2200pts</td>
+						<td class="td-speak"><img src="img/speaker.svg" id="speaker"></td>
+						<td class="td-avatar"><img src="img/avatars/pig.svg" class="avatar"></td>
+					</tr>
+					<tr>
+						<td class="td-rank">2</td>
+						<td class="td-points">Alvin<br> 2100pts</td>
+						<td class="td-speak"></td>
+						<td class="td-avatar"><img src="img/avatars/dog.svg" class="avatar"></td>
+					</tr>
+					*/
+				?>
             </tbody>
         </table>
     </div>
@@ -47,7 +48,3 @@ require_once 'header.php'
 
     </div>
 </section>
-
-<?php
-require_once 'footer.php'
-?>

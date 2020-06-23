@@ -87,6 +87,15 @@ function hasStarted($game_id)
 }
 
 /**
+ * Delete row from $table (should be Game or User) where the id matches $id
+ */
+function deleteFromID($table, $id)
+{
+    $sql = "DELETE FROM '$table' WHERE id = '$id'";
+    return SQLDelete($sql);
+}
+
+/**
  * Get the (unique !) value from $table.$column where $column_cond = $value_cond
  */
 function getValue_($table, $column, $column_cond, $value_cond)

@@ -65,10 +65,29 @@ function updateWord($game_id, $word_id)
     return setValue_("Game", "idWord", $word_id, "id", $game_id);
 }
 
-
+/**
+ * Return all the players in a game
+ * @return PDOStatement
+ */
+function getPlayers($game_id)
+{
+    $sql = "SELECT * FROM User WHERE idGame = '$game_id'";
+    return SQLSelect($sql);
+}
 
 /**
- * Get the value from $table.$column where $column_cond = $value_cond
+ * True if the party has begun, False if it's still waiting for players
+ * @return boolean
+ */
+function hasStarted($game_id)
+{
+    $word_id = getValue_("Game", "idWord", "id", $game_id);
+    // if $word_id = NULL the game hasn't started yet
+    return !(is_null($word_id));
+}
+
+/**
+ * Get the (unique !) value from $table.$column where $column_cond = $value_cond
  */
 function getValue_($table, $column, $column_cond, $value_cond)
 {

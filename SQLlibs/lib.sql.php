@@ -53,7 +53,7 @@ function givePoints($user_id, $points)
 function createRoom($manager_id,$points_max, $duration, $categorie, $token)
 {
     $sql = "INSERT INTO Game (categorie, duration, pointsLimit, token)
-            VALUES ({$categorie}, {$duration}, {$points_max}, {$token})";
+            VALUES ('{$categorie}', {$duration}, {$points_max}, '{$token}')";
     $res = SQLInsert($sql);
     setValue_("User", "manager", 1, "id", $manager_id);
     return $res;

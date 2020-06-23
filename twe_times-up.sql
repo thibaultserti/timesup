@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Mar 23 Juin 2020 à 16:04
+-- Généré le :  Mar 23 Juin 2020 à 22:04
 -- Version du serveur :  5.7.30-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.24-0ubuntu0.18.04.6
 
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `Game` (
   `id` int(10) UNSIGNED NOT NULL COMMENT 'clef primaire',
-  `pointsLimit` int(10) UNSIGNED NOT NULL COMMENT 'Limite de points à atteindre pour finir la partie',
-  `duration` int(10) UNSIGNED NOT NULL COMMENT 'Durée maximale d''un round en secondes',
+  `pointsLimit` int(10) UNSIGNED DEFAULT NULL COMMENT 'Limite de points à atteindre pour finir la partie',
+  `duration` int(10) UNSIGNED DEFAULT NULL COMMENT 'Durée maximale d''un round en secondes',
   `token` varchar(100) NOT NULL COMMENT 'token pour rejoindre les parties',
-  `idWord` int(10) UNSIGNED NOT NULL COMMENT 'id du mot devant être deviné en ce moment',
+  `idWord` int(10) UNSIGNED DEFAULT NULL COMMENT 'id du mot devant être deviné en ce moment',
   `categorie` enum('animal','acteur','objet') DEFAULT NULL COMMENT 'la catégorie chosiie pour la partie'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

@@ -5,21 +5,21 @@ include_once("./maLibSQL.pdo.php");
 // create user in database
 function createUser($pseudo, $avatar)
 {
-    $sql = "INSERT INTO User (pseudo, avatar) VALUES ('$pseudo', '$avatar')";
+    $sql = "INSERT INTO User (pseudo, avatar) VALUES ({$pseudo}, {$avatar})";
     return SQLInsert($sql);
 }
 
 // update the game room for an user
 function enterGame($user_id, $game_id)
 {
-    $sql = "UPDATE User SET idGame = '$game_id' WHERE id = '$user_id'";
+    $sql = "UPDATE User SET idGame = {$game_id} WHERE id = {$user_id}";
     return SQLUpdate($sql);
 }
 
 // undefine game room for an user
 function leaveGame($user_id)
 {
-    $sql = "UPDATE User SET idGame = NULL WHERE id = '$user_id'";
+    $sql = "UPDATE User SET idGame = NULL WHERE id = {$user_id}";
     return SQLUpdate($sql);
 }
 
@@ -35,7 +35,7 @@ function givePoints($user_id, $points)
     } else {
         $new_score = $points;
     }
-    $sql = "UPDATE User SET points = '$new_score' WHERE id = '$user_id'";
+    $sql = "UPDATE User SET points = {$new_score} WHERE id = {$user_id}";
     SQLUpdate($sql);
 
     $game_id = getValue_("User", "idGame", "id", $user_id);
@@ -53,7 +53,7 @@ function givePoints($user_id, $points)
 function createRoom($manager_id,$points_max, $duration, $categorie, $token)
 {
     $sql = "INSERT INTO Game (categorie, duration, pointsLimit, token)
-            VALUES ('$categorie', '$duration', '$points_max', '$token')";
+            VALUES ({$categorie}, {$duration}, {$points_max}, {$token})";
     $res = SQLInsert($sql);
     setValue_("User", "manager", 1, "id", $manager_id);
     return $res;
@@ -71,7 +71,7 @@ function updateWord($game_id, $word_id)
  */
 function getPlayers($game_id)
 {
-    $sql = "SELECT * FROM User WHERE idGame = '$game_id'";
+    $sql = "SELECT * FROM User WHERE idGame = {$game_id}";
     return SQLSelect($sql);
 }
 
@@ -91,7 +91,7 @@ function hasStarted($game_id)
  */
 function deleteFromID($table, $id)
 {
-    $sql = "DELETE FROM '$table' WHERE id = '$id'";
+    $sql = "DELETE FROM {$table} WHERE id = {$id}";
     return SQLDelete($sql);
 }
 
@@ -100,7 +100,7 @@ function deleteFromID($table, $id)
  */
 function getValue_($table, $column, $column_cond, $value_cond)
 {
-    $sql = "SELECT '$column' FROM '$table' WHERE '$column_cond' = '$value_cond'";
+    $sql = "SELECT {$column} FROM {$table} WHERE {$column_cond} = {$value_cond}";
     return SQLGetChamp($sql);
 }
 
@@ -109,7 +109,7 @@ function getValue_($table, $column, $column_cond, $value_cond)
  */
 function setValue_($table, $column, $value, $column_cond, $value_cond)
 {
-    $sql = "UPDATE '$table' SET '$column' = '$value' WHERE '$column_cond' = '$value_cond'";
+    $sql = "UPDATE {$table} SET {$column} = {$value} WHERE {$column_cond} = {$value_cond}";
     return SQLUpdate($sql);
 }
 

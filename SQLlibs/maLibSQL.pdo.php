@@ -11,7 +11,7 @@ function connexion_sql()
 
     try
     {
-        $bdd = new PDO("mysql:host='$BDD_host';dbname='$BDD_base", $BDD_user, $BDD_password);
+        $bdd = new PDO("mysql:host={$BDD_host};dbname={$BDD_base}", $BDD_user, $BDD_password);
     }
     catch (Exception $e)
     {

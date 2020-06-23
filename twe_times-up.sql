@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Mar 23 Juin 2020 à 14:28
+-- Généré le :  Mar 23 Juin 2020 à 14:51
 -- Version du serveur :  5.7.30-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.24-0ubuntu0.18.04.6
 
@@ -53,18 +53,19 @@ CREATE TABLE `User` (
   `pseudo` varchar(100) NOT NULL COMMENT 'pseudo du joueur',
   `points` int(10) UNSIGNED DEFAULT NULL COMMENT 'nombre de points du joueur',
   `manager` tinyint(1) DEFAULT NULL COMMENT '1 s''il a créé la partie, 0 sinon',
-  `idGame` int(10) UNSIGNED DEFAULT NULL COMMENT 'id de la partie dans laquelle est le joueur'
+  `idGame` int(10) UNSIGNED DEFAULT NULL COMMENT 'id de la partie dans laquelle est le joueur',
+  `avatar` enum('bear','beaver','cat','deer','dog2','dog','elephant','fox','horse','monkey','mouse','panda','pig','rabbit','racoon','zebra') DEFAULT NULL COMMENT 'le nom de l''avatar de l''utilisateur'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `User`
 --
 
-INSERT INTO `User` (`id`, `pseudo`, `points`, `manager`, `idGame`) VALUES
-(1, 'Dergawi', 1, 0, 1),
-(2, 'Alvin', 3, 0, 1),
-(3, 'Erik', 0, 1, 1),
-(4, 'Ashka', NULL, NULL, NULL);
+INSERT INTO `User` (`id`, `pseudo`, `points`, `manager`, `idGame`, `avatar`) VALUES
+(1, 'Dergawi', 1, 0, 1, 'deer'),
+(2, 'Alvin', 3, 0, 1, 'fox'),
+(3, 'Erik', 0, 1, 1, 'pig'),
+(4, 'Ashka', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Mar 23 Juin 2020 à 14:51
+-- Généré le :  Mar 23 Juin 2020 à 16:04
 -- Version du serveur :  5.7.30-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.24-0ubuntu0.18.04.6
 
@@ -122,6 +122,25 @@ ALTER TABLE `WordToGuess`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id` (`id`);
 
+--
+-- AUTO_INCREMENT pour les tables exportées
+--
+
+--
+-- AUTO_INCREMENT pour la table `Game`
+--
+ALTER TABLE `Game`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'clef primaire', AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT pour la table `User`
+--
+ALTER TABLE `User`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'clef primaire', AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT pour la table `WordToGuess`
+--
+ALTER TABLE `WordToGuess`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'clef primaire', AUTO_INCREMENT=13;
 --
 -- Contraintes pour les tables exportées
 --

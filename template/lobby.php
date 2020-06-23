@@ -3,8 +3,8 @@
 		<form action="controller.php" class="box-container">
 			<?php
 			include_once "libs/maLibUtils.php";
-			$id = valider("id");
-			echo "<input type=\"hidden\" name=\"id\" value=\"$id\" />" 
+			$gameId = valider("gameId");
+			echo "<input type=\"hidden\" name=\"gameId\" value=\"$gameId\" />" 
 			?>
             <input name="pseudo" type="text" placeholder="Pseudo">
             <div class="box-avatars" id="avatars-container">

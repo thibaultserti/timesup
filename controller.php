@@ -15,22 +15,28 @@ if ($action = valider("action"))
 	switch($action)
 	{	
 		case 'Play':
+			// TODO chopper l'avatar
 			if ($pseudo = valider("pseudo")) {
-				$_SESSION['userId'] = createUser($pseudo, $avatar);
+				$_SESSION['userId'] = createUser($pseudo, "dog");
 				if (!($_SESSION['gameId'] = valider("gameId"))) {
 					$_SESSION['gameId'] = randomGameId();
 				}
 				setUserGameId($_SESSION['userId'], $_SESSION['gameId']);
-				$qs = "?view=game";
+				if (hasStarted($_SESSION['gameId'])) {
+					$qs = "?view=game";
+				} else {
+					$qs = "?view=setup";
+				}
 			} else {
 				$qs = "";
 			}
 		break;
 
 		case 'Create':
+			// TODO chopper l'avatar
 			if ($pseudo = valider("pseudo")) {
-				$_SESSION['userId'] = createUser($pseudo, $avatar);
-				$_SESSION['gameId'] = createGame();
+				$_SESSION['userId'] = createUser($pseudo, "dog");
+				$_SESSION['gameId'] = createGame($_SESSION['userId']);
 				setUserGameId($_SESSION['userId'], $_SESSION['gameId']);
 				$qs = "?view=setup";
 			} else {
@@ -43,7 +49,7 @@ if ($action = valider("action"))
 				&&($maxPoints = valider("maxPoints"))
 				&&($maxTime = valider("maxTime"))
 			) {
-				updateGame($category, $maxPoints, $maxTime);
+				updateGame($category, $maxPoints, $maxTime, $_SESSION['gameId']);
 				$qs = "?view=game";
 			} else {
 				$qs = "";

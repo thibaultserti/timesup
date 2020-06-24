@@ -14,7 +14,7 @@ require_once 'header.php'
 
             <div class="box-avatars" id="avatars-container">
                 <img src="img/arrow.svg" alt="arrow" class="arrow" id="arrow1">
-                <img src="/img/avatars/horse.svg" alt="avatar" class="avatar">
+                <img src="img/avatars/horse.svg" alt="avatar" class="avatar">
                 <img src="img/arrow.svg" alt="arrow" class="arrow">
             </div>
             <button>Jouer</button>

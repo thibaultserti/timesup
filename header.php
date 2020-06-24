@@ -11,4 +11,4 @@
 </head>
 
 <body>
-    <img src="/img/timesup.png" alt="logo timesup" id="logo">
+    <img src="img/timesup.png" alt="logo timesup" id="logo">

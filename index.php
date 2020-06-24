@@ -1,6 +1,10 @@
 <?php
 require_once 'header.php'
 ?>
+
+<script type="text/javascript" src="javascript/script.js">
+</script>
+
 <section>
     <div class="box">
         <form action="" class="box-container">
@@ -13,9 +17,9 @@ require_once 'header.php'
             </select>
 
             <div class="box-avatars" id="avatars-container">
-                <img src="img/arrow.svg" alt="arrow" class="arrow" id="arrow1">
-                <img src="img/avatars/horse.svg" alt="avatar" class="avatar">
-                <img src="img/arrow.svg" alt="arrow" class="arrow">
+                <img src="img/arrow.svg" alt="arrow" class="arrow" id="arrow1" onClick="changeAvatar(this);">
+                <img src="img/avatars/horse.svg" alt="avatar" class="avatar" id="avatar">
+                <img src="img/arrow.svg" alt="arrow" class="arrow" onClick="changeAvatar(this);">
             </div>
             <button>Jouer</button>
             <button>Créer une partie</button>

@@ -3,13 +3,13 @@
 include_once("libs/maLibSQL.pdo.php");
 
 function generateToken() {
+	//TODO
 	return 1111;
 }
 
 function createGame($userId) {
 	$token = generateToken();
 	$sql = "INSERT INTO game (token) VALUES ('$token')";
-	//die($sql);
     setValue_("User", "manager", 1, "id", $userId);
     return SQLInsert($sql);
 }
@@ -24,7 +24,8 @@ function updateGame($category, $maxPoints, $maxTime, $gameId) {
 }
 
 function randomGameId() {
-	// TODO
+	$sql = "SELECT id FROM game ORDER BY RAND() LIMIT 1";
+	return parcoursRs(SQLSelect($sql));
 	return 2;
 }
 

@@ -19,7 +19,7 @@ if ($action = valider("action"))
 			if ($pseudo = valider("pseudo")) {
 				$_SESSION['userId'] = createUser($pseudo, "dog");
 				if (!($_SESSION['gameId'] = valider("gameId"))) {
-					$_SESSION['gameId'] = randomGameId();
+					$_SESSION['gameId'] = randomGameId()[0]['id'];
 				}
 				setUserGameId($_SESSION['userId'], $_SESSION['gameId']);
 				if (hasStarted($_SESSION['gameId'])) {

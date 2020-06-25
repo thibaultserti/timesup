@@ -113,6 +113,7 @@ ALTER TABLE `Game`
 --
 ALTER TABLE `User`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `pseudo` (`pseudo`),
   ADD KEY `id_game` (`idGame`);
 
 --

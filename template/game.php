@@ -2,11 +2,15 @@
 <script src="javascript/jquery-3.5.1.min.js"></script>
 
 <script>
+
+
+
+
 $(document).ready(function(){
     $("input").keyup(function(contexte){
         if (contexte.which == 13) {
             var msg = $("input").val();
-            sendMsg(msg);
+            postMessage(msg);
     }
     });
 });
@@ -17,11 +21,57 @@ function sendMsg(msg){
         $.ajax({
             url : "chat.php",
             type : "POST",
-            data : "msg=" + msg
+            data : "message=" + msg
         });
         $('#messages').append("<tr><td class=\"td-name\">" + "Erik" + "</td><td class=\"td-chat\">" + msg + "</td></tr>"); // on ajoute le message dans la zone prévue
     }
 };
+
+function getMessages(){
+    const rAjax = new XMLHttpRequest();
+    rAjax.open("GET","chat.php");
+    rAjax.onload = function(){
+        const result = JSON.parse(rAjax.responseText);
+        console.log(result);
+
+        const htmlStr = result.reverse().map(function(msg){
+          return `
+            <tr>
+                <td class="td-name">${msg.pseudo}</td>
+                <td class="td-chat">${msg.message}</td>
+            </tr>
+          
+          
+          
+          `  
+        }).join('');
+
+        console.log(htmlStr);
+        $('#messages').append(htmlStr)
+    }
+    rAjax.send();
+
+}
+
+
+function postMessage(msg){
+    event.preventDefault();
+    const pseudo = "Erik";
+    const data = new FormData();
+    data.append('pseudo',pseudo);
+    data.append('message',msg);
+
+    const rAjax = new XMLHttpRequest();
+    rAjax.open("POST","chat.php?task=write");
+
+    rAjax.onload = function(){
+        getMessages();
+    }
+    rAjax.send(data);
+
+}
+
+
 
 
 </script>
@@ -51,6 +101,7 @@ function sendMsg(msg){
     <div class="box">
         <table class="leaderboard">
             <tbody id ="messages">
+
                 <tr>
                     <td class="td-name">Erik</td>
                     <td class="td-chat">Lorem</td>

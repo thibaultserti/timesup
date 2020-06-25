@@ -54,7 +54,8 @@ CREATE TABLE `User` (
   `points` int(10) UNSIGNED DEFAULT NULL COMMENT 'nombre de points du joueur',
   `manager` tinyint(1) DEFAULT NULL COMMENT '1 s''il a créé la partie, 0 sinon',
   `idGame` int(10) UNSIGNED DEFAULT NULL COMMENT 'id de la partie dans laquelle est le joueur',
-  `avatar` enum('bear','beaver','cat','deer','dog','elephant','fox','horse','monkey','panda','pig','racoon','zebra') DEFAULT NULL COMMENT 'le nom de l''avatar de l''utilisateur'
+  `avatar` enum('bear','beaver','cat','deer','dog','elephant','fox','horse','monkey','panda','pig','racoon','zebra') DEFAULT NULL COMMENT 'le nom de l''avatar de l''utilisateur',
+  `playingUserId` int(10) UNSIGNED DEFAULT NULL COMMENT 'l''id du joueur en train de faire deviner son mot'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

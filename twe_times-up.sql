@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Mar 23 Juin 2020 à 22:04
+-- Généré le :  Jeu 25 Juin 2020 à 15:21
 -- Version du serveur :  5.7.30-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.24-0ubuntu0.18.04.6
 
@@ -32,15 +32,16 @@ CREATE TABLE `Game` (
   `duration` int(10) UNSIGNED DEFAULT NULL COMMENT 'Durée maximale d''un round en secondes',
   `token` varchar(100) NOT NULL COMMENT 'token pour rejoindre les parties',
   `idWord` int(10) UNSIGNED DEFAULT NULL COMMENT 'id du mot devant être deviné en ce moment',
-  `categorie` enum('animal','acteur','objet') DEFAULT NULL COMMENT 'la catégorie chosiie pour la partie'
+  `categorie` enum('animal','acteur','objet') DEFAULT NULL COMMENT 'la catégorie chosiie pour la partie',
+  `playingUserId` int(10) UNSIGNED DEFAULT NULL COMMENT 'id du joueur en train de faire deviner son mot'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `Game`
 --
 
-INSERT INTO `Game` (`id`, `pointsLimit`, `duration`, `token`, `idWord`, `categorie`) VALUES
-(1, 30, 30, '1138220620', 3, 'acteur');
+INSERT INTO `Game` (`id`, `pointsLimit`, `duration`, `token`, `idWord`, `categorie`, `playingUserId`) VALUES
+(1, 30, 30, '1138220620', 3, 'acteur', NULL);
 
 -- --------------------------------------------------------
 
@@ -54,8 +55,7 @@ CREATE TABLE `User` (
   `points` int(10) UNSIGNED DEFAULT NULL COMMENT 'nombre de points du joueur',
   `manager` tinyint(1) DEFAULT NULL COMMENT '1 s''il a créé la partie, 0 sinon',
   `idGame` int(10) UNSIGNED DEFAULT NULL COMMENT 'id de la partie dans laquelle est le joueur',
-  `avatar` enum('bear','beaver','cat','deer','dog','elephant','fox','horse','monkey','panda','pig','racoon','zebra') DEFAULT NULL COMMENT 'le nom de l''avatar de l''utilisateur',
-  `playingUserId` int(10) UNSIGNED DEFAULT NULL COMMENT 'l''id du joueur en train de faire deviner son mot'
+  `avatar` enum('bear','beaver','cat','deer','dog2','dog','elephant','fox','horse','monkey','mouse','panda','pig','rabbit','racoon','zebra') DEFAULT NULL COMMENT 'le nom de l''avatar de l''utilisateur'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -96,7 +96,47 @@ INSERT INTO `WordToGuess` (`id`, `categorie`, `value`) VALUES
 (9, 'objet', 'Marteau'),
 (10, 'objet', 'Poivrière'),
 (11, 'acteur', 'Angelina Jolie'),
-(12, 'animal', 'Chèvre');
+(12, 'animal', 'Chèvre'),
+(13, 'objet', 'réveil'),
+(14, 'objet', 'ordinateur'),
+(15, 'objet', 'lampe'),
+(16, 'objet', 'corbeille'),
+(17, 'objet', 'multiprise'),
+(18, 'objet', 'masque'),
+(19, 'objet', 'tong'),
+(20, 'objet', 't-shirt'),
+(21, 'objet', 'livre'),
+(22, 'objet', 'clef'),
+(23, 'objet', 'stylo'),
+(24, 'objet', 'pinceau'),
+(25, 'objet', 'fourchette'),
+(26, 'objet', 'saladier'),
+(27, 'objet', 'projecteur'),
+(28, 'objet', 'balai'),
+(29, 'objet', 'serviette'),
+(30, 'objet', 'tondeuse'),
+(31, 'objet', 'raquette'),
+(32, 'objet', 'valise'),
+(33, 'objet', 'verre'),
+(34, 'objet', 'poignée de porte'),
+(35, 'objet', 'téléphone'),
+(36, 'objet', 'couette'),
+(37, 'objet', 'CD'),
+(38, 'objet', 'tirelire'),
+(39, 'objet', 'bureau'),
+(40, 'objet', 'piano'),
+(41, 'objet', 'étagère'),
+(42, 'objet', 'guitare'),
+(43, 'objet', 'aspirateur'),
+(44, 'objet', 'vase'),
+(45, 'objet', 'collier'),
+(46, 'objet', 'bouteille'),
+(47, 'objet', 'frigo'),
+(48, 'objet', 'vélo'),
+(49, 'objet', 'trottinette'),
+(50, 'objet', 'brosse à dents'),
+(51, 'objet', 'paire de lunettes'),
+(52, 'objet', 'ventilateur');
 
 --
 -- Index pour les tables exportées
@@ -107,7 +147,8 @@ INSERT INTO `WordToGuess` (`id`, `categorie`, `value`) VALUES
 --
 ALTER TABLE `Game`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_word` (`idWord`);
+  ADD KEY `id_word` (`idWord`),
+  ADD KEY `playingUserId` (`playingUserId`);
 
 --
 -- Index pour la table `User`
@@ -115,6 +156,7 @@ ALTER TABLE `Game`
 ALTER TABLE `User`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `pseudo` (`pseudo`),
+  ADD UNIQUE KEY `pseudo_2` (`pseudo`),
   ADD KEY `id_game` (`idGame`);
 
 --
@@ -142,7 +184,7 @@ ALTER TABLE `User`
 -- AUTO_INCREMENT pour la table `WordToGuess`
 --
 ALTER TABLE `WordToGuess`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'clef primaire', AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'clef primaire', AUTO_INCREMENT=53;
 --
 -- Contraintes pour les tables exportées
 --
@@ -151,7 +193,8 @@ ALTER TABLE `WordToGuess`
 -- Contraintes pour la table `Game`
 --
 ALTER TABLE `Game`
-  ADD CONSTRAINT `Game_ibfk_1` FOREIGN KEY (`idWord`) REFERENCES `WordToGuess` (`id`);
+  ADD CONSTRAINT `Game_ibfk_1` FOREIGN KEY (`idWord`) REFERENCES `WordToGuess` (`id`),
+  ADD CONSTRAINT `Game_ibfk_2` FOREIGN KEY (`playingUserId`) REFERENCES `User` (`id`);
 
 --
 -- Contraintes pour la table `User`

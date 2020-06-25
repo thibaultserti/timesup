@@ -1,14 +1,24 @@
 <?php
 
-// V1.0 du 18 mai 2018
+include_once "config.php";
 
-if (file_exists("./config.php"))
-	include_once("./config.php");
-else if (file_exists("../libs/config.php"))
-	include_once "../libs/config.php";
-else if (file_exists("libs/config.php"))
-	include_once "libs/config.php";
-else die("Fichier config introuvable");
+function connexion_sql()
+{
+    global $BDD_host;
+    global $BDD_password;
+    global $BDD_base;
+    global $BDD_user;    
+
+    try
+    {
+        $bdd = new PDO("mysql:host={$BDD_host};dbname={$BDD_base}", $BDD_user, $BDD_password);
+    }
+    catch (Exception $e)
+    {
+        die('Erreur : ' . $e->getMessage());
+    }
+    return $bdd;
+}
 
 /**
  * @file maLibSQL.php
@@ -29,25 +39,15 @@ else die("Fichier config introuvable");
  */
 function SQLUpdate($sql)
 {
-	global $BDD_host;
-	global $BDD_base;
-	global $BDD_user;
-	global $BDD_password;
-
-	try {
-		$dbh = new PDO("mysql:host=$BDD_host;dbname=$BDD_base", $BDD_user, $BDD_password);
-	} catch (PDOException $e) {
-		die("<font color=\"red\">SQLUpdate/Delete: Erreur de connexion : " . $e->getMessage() . "</font>");
-	}
-
-	$dbh->exec("SET CHARACTER SET utf8");
-	$res = $dbh->query($sql);
+    $bdd = connexion_sql();
+	$bdd->exec("SET CHARACTER SET utf8");
+	$res = $bdd->query($sql);
 	if ($res === false) {
-		$e = $dbh->errorInfo(); 
+		$e = $bdd->errorInfo(); 
 		die("<font color=\"red\">SQLUpdate/Delete: Erreur de requete : " . $e[2] . "</font>");
 	}
 
-	$dbh = null;
+	$bdd = null;
 	$nb = $res->rowCount();
 	if ($nb != 0) return $nb;
 	else return false;
@@ -66,26 +66,16 @@ function SQLDelete($sql) {return SQLUpdate($sql);}
  */
 function SQLInsert($sql)
 {
-	global $BDD_host;
-	global $BDD_base;
-	global $BDD_user;
-	global $BDD_password;
-	
-	try {
-		$dbh = new PDO("mysql:host=$BDD_host;dbname=$BDD_base", $BDD_user, $BDD_password);
-	} catch (PDOException $e) {
-		die("<font color=\"red\">SQLInsert: Erreur de connexion : " . $e->getMessage() . "</font>");
-	}
-
-	$dbh->exec("SET CHARACTER SET utf8");
-	$res = $dbh->query($sql);
+    $bdd = connexion_sql();
+	$bdd->exec("SET CHARACTER SET utf8");
+	$res = $bdd->query($sql);
 	if ($res === false) {
-		$e = $dbh->errorInfo(); 
+		$e = $bdd->errorInfo(); 
 		die("<font color=\"red\">SQLInsert: Erreur de requete : " . $e[2] . "</font>");
 	}
 
-	$lastInsertId = $dbh->lastInsertId();
-	$dbh = null; 
+	$lastInsertId = $bdd->lastInsertId();
+	$bdd = null; 
 	return $lastInsertId;
 }
 
@@ -100,26 +90,16 @@ function SQLInsert($sql)
 */
 function SQLGetChamp($sql)
 {
-	global $BDD_host;
-	global $BDD_base;
-	global $BDD_user;
-	global $BDD_password;
-
-	try {
-		$dbh = new PDO("mysql:host=$BDD_host;dbname=$BDD_base", $BDD_user, $BDD_password);
-	} catch (PDOException $e) {
-		die("<font color=\"red\">SQLGetChamp: Erreur de connexion : " . $e->getMessage() . "</font>");
-	}
-
-	$dbh->exec("SET CHARACTER SET utf8");
-	$res = $dbh->query($sql);
+    $bdd = connexion_sql();
+	$bdd->exec("SET CHARACTER SET utf8");
+	$res = $bdd->query($sql);
 	if ($res === false) {
-		$e = $dbh->errorInfo(); 
+		$e = $bdd->errorInfo(); 
 		die("<font color=\"red\">SQLGetChamp: Erreur de requete : " . $e[2] . "</font>");
 	}
 
 	$num = $res->rowCount();
-	$dbh = null;
+	$bdd = null;
 
 	if ($num==0) return false;
 	
@@ -140,51 +120,19 @@ function SQLGetChamp($sql)
  */
 function SQLSelect($sql)
 {	
- 	global $BDD_host;
-	global $BDD_base;
- 	global $BDD_user;
- 	global $BDD_password;
-
-	try {
-		$dbh = new PDO("mysql:host=$BDD_host;dbname=$BDD_base", $BDD_user, $BDD_password);
-	} catch (PDOException $e) {
-		die("<font color=\"red\">SQLSelect: Erreur de connexion : " . $e->getMessage() . "</font>");
-	}
-
-	$dbh->exec("SET CHARACTER SET utf8");
-	$res = $dbh->query($sql);
+ 	$bdd = connexion_sql();
+	$bdd->exec("SET CHARACTER SET utf8");
+	$res = $bdd->query($sql);
 	if ($res === false) {
-		$e = $dbh->errorInfo(); 
+		$e = $bdd->errorInfo(); 
 		die("<font color=\"red\">SQLSelect: Erreur de requete : " . $e[2] . "</font>");
 	}
 	
 	$num = $res->rowCount();
-	$dbh = null;
+	$bdd = null;
 
 	if ($num==0) return false;
 	else return $res;
 }
-
-/**
-*
-* Parcours les enregistrements d'un résultat mysql et les renvoie sous forme de tableau associatif
-* On peut ensuite l'afficher avec la fonction print_r, ou le parcourir avec foreach
-* @param resultat_Mysql $result
-*/
-function parcoursRs($result)
-{
-	if  ($result == false) return array();
-
-	$result->setFetchMode(PDO::FETCH_ASSOC);
-	while ($ligne = $result->fetch()) 
-		$tab[]= $ligne;
-
-	return $tab;
-}
-
-
-
-
-
 
 ?>

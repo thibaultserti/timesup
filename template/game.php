@@ -1,9 +1,12 @@
+<script type="text/javascript" src="javascript/script.js">
+
+</script>
+
 <div>
     <h1>Invite tes amis !</h1>
     <div class="box-timer">
         <img src="img/timer.svg">
-        <span> 30s </span>
-
+        <span id="remainingTime"> 2h30 </span>
     </div>
 </div>
 <section>
@@ -47,4 +50,11 @@
         <input type="text" class="message" placeholder="Tapez votre réponse">
 
     </div>
+    <!--timer de 30 secondes lorsqu'on clique sur le bouton qui fait commencer un tour-->
+    <button onclick="setTimer(30000)">Test Timer</button>
+
 </section>
+
+<?php
+require_once 'footer.php'
+?>

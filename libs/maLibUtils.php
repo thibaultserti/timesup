@@ -1,15 +1,14 @@
 <?php
 
-// V1.0 du 18 mai 2018
 
 /**
  * @file maLibUtils.php
- * Ce fichier d√©finit des fonctions d'acc√®s ou d'affichage pour les tableaux superglobaux
+ * Ce fichier dÈfinit des fonctions d'accËs ou d'affichage pour les tableaux superglobaux
  */
 
 /**
- * V√©rifie l'existence (isset) et la taille (non vide) d'un param√®tre dans un des tableaux GET, POST, COOKIES, SESSION
- * Renvoie false si le param√®tre est vide ou absent
+ * VÈrifie l'existence (isset) et la taille (non vide) d'un paramËtre dans un des tableaux GET, POST, COOKIES, SESSION
+ * Renvoie false si le paramËtre est vide ou absent
  * @note l'utilisation de empty est critique : 0 est empty !!
  * Lorsque l'on teste, il faut tester avec un ===
  * @param string $nom
@@ -45,13 +44,13 @@ function valider($nom,$type="REQUEST")
 			return $_SERVER[$nom]; 		
 		break;
 	}
-	return false; // Si pb pour r√©cup√©rer la valeur 
+	return false; // Si pb pour rÈcupÈrer la valeur 
 }
 
 
 /**
- * V√©rifie l'existence (isset) et la taille (non vide) d'un param√®tre dans un des tableaux GET, POST, COOKIE, SESSION
- * Prend un argument d√©finissant la valeur renvoy√©e en cas d'absence de l'argument dans le tableau consid√©r√©
+ * VÈrifie l'existence (isset) et la taille (non vide) d'un paramËtre dans un des tableaux GET, POST, COOKIE, SESSION
+ * Prend un argument dÈfinissant la valeur renvoyÈe en cas d'absence de l'argument dans le tableau considÈrÈ
 
  * @param string $nom
  * @param string $defaut
@@ -78,7 +77,7 @@ function getValue($nom,$defaut=false,$type="REQUEST")
 function proteger($str)
 {
 	// attention au cas des select multiples !
-	// On pourrait passer le tableau par r√©f√©rence et √©viter la cr√©ation d'un tableau auxiliaire
+	// On pourrait passer le tableau par rÈfÈrence et Èviter la crÈation d'un tableau auxiliaire
 	if (is_array($str))
 	{
 		$nextTab = array();
@@ -102,30 +101,34 @@ function tprint($tab)
 	echo "</pre>\n";	
 }
 
+function debug($nom,$val) {
+	global $data;
 
-function rediriger($url,$qs="")
-{
-	// if ($qs != "")	 $qs = urlencode($qs);	
-	// Il faut respecter l'encodage des caract√®res dans les cha√Ænes de requ√™tes
-	// NB : Pose des probl√®mes en cas de valeurs multiples
-	// TODO: Passer un tabAsso en param√®tres
-
-	if ($qs != "") $qs = "?$qs";
- 
-	header("Location:$url$qs"); // envoi par la m√©thode GET
-	die(""); // interrompt l'interpr√©tation du code 
-
-	// TODO: on pourrait passer en parametre le message servant au die...
+	if (valider("debug-data")) {
+		$data["debug"][$nom] = $val;
+	} 
+	if (valider("debug")) {
+		echo "$nom: $val\n<br/>\n";
+	}
+	if (valider("HTTP_DEBUG_DATA","SERVER")) {
+		$data["debug"][$nom] = $val;
+	} 
+	if (valider("HTTP_DEBUG","SERVER")) {
+		echo "$nom: $val\n<br/>\n";
+	}	
 }
 
-// TODO: int√©grer les redirections vers la page index dans une fonction :
-
-/*
-// Si la page est appel√©e directement par son adresse, on redirige en passant pas la page index
-if (basename($_SERVER["PHP_SELF"]) != "index.php")
-{
-	header("Location:../index.php");
-	die("");
+function is_id($i) {
+	$i = intval($i);
+	return (is_int($i) && ($i!=0) );
 }
-*/
+
+function is_check($i) {
+	$i = intval($i);
+	return ( ($i==0) || ($i==1)); 
+}
+
+
+
+
 ?>

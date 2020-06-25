@@ -14,6 +14,7 @@ function changeAvatar(arrow) { //pour index.php
     for (var i=0; i<avatarList.length; i++) {
         //on essaye tous les changements possibles, seul celui qui nous intéresse est effectué
         document.getElementById("avatar").src = avatar.src.replace(avatarList[i+1], avatarList[i]);
+        document.getElementById("avatarName").value = avatarName.value.replace(avatarList[i+1], avatarList[i]);
     }
 }
 

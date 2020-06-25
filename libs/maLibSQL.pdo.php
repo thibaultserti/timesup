@@ -135,4 +135,22 @@ function SQLSelect($sql)
 	else return $res;
 }
 
+/**
+*
+* Parcours les enregistrements d'un résultat mysql et les renvoie sous forme de tableau associatif
+* On peut ensuite l'afficher avec la fonction print_r, ou le parcourir avec foreach
+* @param resultat_Mysql $result
+*/
+function parcoursRs($result)
+{
+	if  ($result == false) return array();
+
+	$result->setFetchMode(PDO::FETCH_ASSOC);
+	while ($ligne = $result->fetch()) 
+		$tab[]= $ligne;
+
+	return $tab;
+}
+
+
 ?>

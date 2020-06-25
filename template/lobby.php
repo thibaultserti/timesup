@@ -7,14 +7,15 @@
 		<form action="controller.php" class="box-container">
 			<?php
 			include_once "libs/maLibUtils.php";
-			$gameId = valider("gameId");
-			echo "<input type=\"hidden\" name=\"gameId\" value=\"$gameId\" />" 
+			$token = valider("token");
+			echo "<input type=\"hidden\" name=\"token\" value=\"$token\" />" 
 			?>
             <input name="pseudo" type="text" placeholder="Pseudo">
             <div class="box-avatars" id="avatars-container">
-                <img src="img/arrow.svg" alt="arrow" class="arrow" id="arrow1">
-                <img src="img/avatars/horse.svg" alt="avatar" class="avatar">
-                <img src="img/arrow.svg" alt="arrow" class="arrow">
+                <img src="img/arrow.svg" alt="arrow" class="arrow" id="arrow1" onClick="changeAvatar(this);">
+                <img src="img/avatars/horse.svg" alt="avatar" class="avatar" id="avatar">
+				<input name="avatar" type="hidden" value="horse" id="avatarName">
+                <img src="img/arrow.svg" alt="arrow" class="arrow" onClick="changeAvatar(this);">
             </div>
             <button name="action" value="Play">Jouer</button>
             <button name="action" value="Create">Créer une partie</button>

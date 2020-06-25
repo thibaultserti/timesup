@@ -15,10 +15,11 @@ if ($action = valider("action"))
 	switch($action)
 	{	
 		case 'Play':
-			// TODO chopper l'avatar
-			if ($pseudo = valider("pseudo")) {
-				$_SESSION['userId'] = createUser($pseudo, "dog");
-				if (!($_SESSION['gameId'] = valider("gameId"))) {
+			if (($pseudo = valider("pseudo"))&&($avatar = valider("avatar"))) {
+				$_SESSION['userId'] = createUser($pseudo, $avatar);
+				if ($token = valider("token")) {
+					$_SESSION['gameId'] = tokenToGameId($token)[0]['id'];
+				} else {
 					$_SESSION['gameId'] = randomGameId()[0]['id'];
 				}
 				setUserGameId($_SESSION['userId'], $_SESSION['gameId']);
@@ -33,9 +34,8 @@ if ($action = valider("action"))
 		break;
 
 		case 'Create':
-			// TODO chopper l'avatar
-			if ($pseudo = valider("pseudo")) {
-				$_SESSION['userId'] = createUser($pseudo, "dog");
+			if (($pseudo = valider("pseudo"))&&($avatar = valider("avatar"))) {
+				$_SESSION['userId'] = createUser($pseudo, $avatar);
 				$_SESSION['gameId'] = createGame($_SESSION['userId']);
 				setUserGameId($_SESSION['userId'], $_SESSION['gameId']);
 				$qs = "?view=setup";

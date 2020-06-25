@@ -7,10 +7,12 @@
 
 
 $(document).ready(function(){
+    getMessages();
     $("input").keyup(function(contexte){
         if (contexte.which == 13) {
             var msg = $("input").val();
             postMessage(msg);
+            
     }
     });
 });
@@ -32,7 +34,7 @@ function getMessages(){
     rAjax.open("GET","chat.php");
     rAjax.onload = function(){
         const result = JSON.parse(rAjax.responseText);
-        console.log(result);
+        //console.log(result);
 
         const htmlStr = result.reverse().map(function(msg){
           return `
@@ -47,7 +49,8 @@ function getMessages(){
         }).join('');
 
         console.log(htmlStr);
-        $('#messages').append(htmlStr)
+        //$('#messages').innerHTML= htmlStr;
+        document.querySelector('#messages').innerHTML = htmlStr;
     }
     rAjax.send();
 
@@ -57,13 +60,11 @@ function getMessages(){
 function postMessage(msg){
     event.preventDefault();
     const pseudo = "Erik";
-    const data = new FormData();
-    data.append('pseudo',pseudo);
-    data.append('message',msg);
-
+    const data ={"pseudo":pseudo, 
+				"message":msg}
     const rAjax = new XMLHttpRequest();
     rAjax.open("POST","chat.php?task=write");
-
+    console.log(data)
     rAjax.onload = function(){
         getMessages();
     }

@@ -10,14 +10,14 @@ catch (Exception $e)
 {
     die('Erreur : ' . $e->getMessage());
 }
-
+echo $_GET["task"];
 $task ="list";
 if(array_key_exists("task",$GET)){
     echo $_GET["task"];
 }
 
-if($task=="write"){
-    postMessages();
+if($task=='write'){
+    postMessage();
 } else {
     getMessages();
 }
@@ -29,17 +29,16 @@ function getMessages(){
     echo json_encode($messages);
 }
 
-function postMessages(){
+function postMessage(){
     global $db;
 
     if(!array_key_exists("pseudo",$_POST) || !array_key_exists("message",$_POST)){
-        echo json_encode(["status" => "error"]);
+        echo json_encode(["status" => "error", "message" => "One field or many have not been sent"]);
         return;
     }
     $pseudo = $_POST['pseudo'];
     $message = $_POST['message'];
-    $query = $db ->prepare("INSERT INTO messages SET pseudo = :pseudo, message = :message, created_at = NOW()");
-
+    $query = $db ->prepare('INSERT INTO messages SET pseudo = :pseudo, message = :message, created_at = NOW()');
     $query->execute([
         "pseudo" => $pseudo,
         "message" => $message

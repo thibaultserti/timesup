@@ -1,6 +1,32 @@
-<script type="text/javascript" src="javascript/script.js">
+<script type="text/javascript" src="javascript/script.js"></script>
+<script src="javascript/jquery-3.5.1.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    $("input").keyup(function(contexte){
+        if (contexte.which == 13) {
+            var msg = $("input").val();
+            sendMsg(msg);
+    }
+    });
+});
+
+function sendMsg(msg){
+    if(msg !=""){
+        console.log(msg);
+        $.ajax({
+            url : "chat.php",
+            type : "POST",
+            data : "msg=" + msg
+        });
+        $('#messages').append("<tr><td class=\"td-name\">" + "Erik" + "</td><td class=\"td-chat\">" + msg + "</td></tr>"); // on ajoute le message dans la zone prévue
+    }
+};
+
 
 </script>
+
+
 
 <div>
     <h1>Invite tes amis !</h1>
@@ -17,20 +43,6 @@
             <tbody>
 				<?php
 					echo inGameUserList($_SESSION['gameId']);
-					/*
-					<tr>
-						<td class="td-rank">1</td>
-						<td class="td-points">Erik <br> 2200pts</td>
-						<td class="td-speak"><img src="img/speaker.svg" id="speaker"></td>
-						<td class="td-avatar"><img src="img/avatars/pig.svg" class="avatar"></td>
-					</tr>
-					<tr>
-						<td class="td-rank">2</td>
-						<td class="td-points">Alvin<br> 2100pts</td>
-						<td class="td-speak"></td>
-						<td class="td-avatar"><img src="img/avatars/dog.svg" class="avatar"></td>
-					</tr>
-					*/
 				?>
             </tbody>
         </table>
@@ -38,19 +50,18 @@
 
     <div class="box">
         <table class="leaderboard">
-            <tbody>
+            <tbody id ="messages">
                 <tr>
                     <td class="td-name">Erik</td>
-                    <td class="td-chat">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus nobis eaque, atque neque eius modi labore consequuntur doloribus facere vel minus eligendi placeat, rem architecto facilis iste? Unde, nihil alias?</td>
+                    <td class="td-chat">Lorem</td>
                 </tr>
                 <tr>
                     <td class="td-name">Alvin</td>
-                    <td class="td-chat">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum officiis ad, illum voluptatum, sed in ratione dolore molestias omnis earum at itaque, hic odio sunt voluptatibus iusto aperiam velit unde.</td>
+                    <td class="td-chat">Lorem ipsum dolo</td>
                 </tr>
             </tbody>
         </table>
-        <input type="text" class="message" placeholder="Tapez votre réponse">
-
+	    <input type="text" class="message" placeholder="Tapez votre réponse">
     </div>
 
 </section>

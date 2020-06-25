@@ -8,19 +8,19 @@ function generateToken() {
 }
 
 function tokenToGameId($token) {
-	$sql = "SELECT id FROM game WHERE token = '$token'";
+	$sql = "SELECT id FROM Game WHERE token = '$token'";
 	return parcoursRs(SQLSelect($sql));
 }
 
 function createGame($userId) {
 	$token = generateToken();
-	$sql = "INSERT INTO game (token) VALUES ('$token')";
+	$sql = "INSERT INTO Game (token) VALUES ('$token')";
     setValue_("User", "manager", 1, "id", $userId);
     return SQLInsert($sql);
 }
 
 function updateGame($category, $maxPoints, $maxTime, $gameId) {
-	$sql = "UPDATE game SET 
+	$sql = "UPDATE Game SET 
 			categorie = '$category',
 			duration = '$maxTime',
 			pointsLimit = '$maxPoints'
@@ -29,12 +29,12 @@ function updateGame($category, $maxPoints, $maxTime, $gameId) {
 }
 
 function getTimer($gameId) {
-	$sql = "SELECT duration FROM game WHERE id=$gameId";
+	$sql = "SELECT duration FROM Game WHERE id=$gameId";
 	return parcoursRs(SQLSelect($sql));
 }
 
 function randomGameId() {
-	$sql = "SELECT id FROM game ORDER BY RAND() LIMIT 1";
+	$sql = "SELECT id FROM Game ORDER BY RAND() LIMIT 1";
 	return parcoursRs(SQLSelect($sql));
 }
 
@@ -49,7 +49,7 @@ function setUserGameId($userId, $gameId) {
  * @return boolean
  */
 function hasStarted($gameId) {
-    $wordId = getValue_("game", "idWord", "id", $gameId);
+    $wordId = getValue_("Game", "idWord", "id", $gameId);
     // if $word_id = NULL the game hasn't started yet
     return !(is_null($wordId));
 }
@@ -69,7 +69,7 @@ function getPlayers($gameId) {
 }
 
 function isTalking($gameId) {
-	$sql = "SELECT playingUserId FROM game WHERE id = '$gameId'";
+	$sql = "SELECT playingUserId FROM Game WHERE id = '$gameId'";
 	return parcoursRs(SQLSelect($sql));
 }
 

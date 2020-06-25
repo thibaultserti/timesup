@@ -1,31 +1,37 @@
-<?php
-require_once 'header.php'
-?>
+<script type="text/javascript" src="javascript/script.js">
+
+</script>
+
 <div>
     <h1>Invite tes amis !</h1>
     <div class="box-timer">
-        <img src="/img/timer.svg">
-        <span> 30s </span>
-
+        <img src="img/timer.svg">
+        <span id="remainingTime" onclick="setTimer(<?php echo getTimer($_SESSION['gameId'])[0]['duration'] ?>000)"> 
+			<?php echo getTimer($_SESSION['gameId'])[0]['duration'] ?>s
+		</span>
     </div>
 </div>
 <section>
     <div class="box">
         <table>
             <tbody>
-                <tr>
-                    <td class="td-rank">1</td>
-                    <td class="td-points">Erik <br> 2200pts</td>
-                    <td class="td-speak"><img src="/img/speaker.svg" id="speaker"></td>
-                    <td class="td-avatar"><img src="/img/avatars/pig.svg" class="avatar"></td>
-                </tr>
-                <tr>
-                    <td class="td-rank">2</td>
-                    <td class="td-points">Alvin<br> 2100pts</td>
-                    <td class="td-speak"></td>
-                    <td class="td-avatar"><img src="/img/avatars/dog.svg" class="avatar"></td>
-                </tr>
-
+				<?php
+					echo inGameUserList($_SESSION['gameId']);
+					/*
+					<tr>
+						<td class="td-rank">1</td>
+						<td class="td-points">Erik <br> 2200pts</td>
+						<td class="td-speak"><img src="img/speaker.svg" id="speaker"></td>
+						<td class="td-avatar"><img src="img/avatars/pig.svg" class="avatar"></td>
+					</tr>
+					<tr>
+						<td class="td-rank">2</td>
+						<td class="td-points">Alvin<br> 2100pts</td>
+						<td class="td-speak"></td>
+						<td class="td-avatar"><img src="img/avatars/dog.svg" class="avatar"></td>
+					</tr>
+					*/
+				?>
             </tbody>
         </table>
     </div>
@@ -46,6 +52,7 @@ require_once 'header.php'
         <input type="text" class="message" placeholder="Tapez votre réponse">
 
     </div>
+
 </section>
 
 <?php

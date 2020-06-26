@@ -59,6 +59,10 @@ function postMessage(msg){
     console.log(data)
     rAjax.onload = function(){
         getMessages();
+        document.getElementById('myInput').value = '';
+        document.getElementById('myInput').focus();
+        //$("input").value ="";
+        //$("input").focus();
     }
     rAjax.send(data);
 
@@ -105,7 +109,7 @@ function postMessage(msg){
                 </tr>
             </tbody>
         </table>
-	    <input type="text" class="message" placeholder="Tapez votre réponse">
+	    <input type="text" id="myInput" class="message" placeholder="Tapez votre réponse">
     </div>
 
 </section>

@@ -14,6 +14,7 @@ $(document).ready(function(){
             postMessage(msg);
             
     }
+    const interval = window.setInterval(getMessages, 3000);
     });
 });
 

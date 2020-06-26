@@ -48,7 +48,7 @@ function getMessages(){
 
 function postMessage(msg){
     event.preventDefault();
-    const pseudo = "Erik";
+    const pseudo = $(".pseudo").text();
 
     const data = new FormData();
     data.append('pseudo', pseudo);
@@ -79,7 +79,8 @@ function postMessage(msg){
 	echo "window.onload = function() {setTimer(";
 	echo getTimer($_SESSION['gameId'])[0]['duration'];
 	echo "000);};";
-	echo "</script>";
+    echo "</script>";
+    
 
 ?>
 
@@ -105,6 +106,11 @@ function postMessage(msg){
 
     <div class="box">
         <table class="leaderboard">
+            <div class = pseudo>
+            <?php
+	        echo $_SESSION['pseudo'];
+            ?>
+            </div>
             <tbody id ="messages">
 
                 <tr>

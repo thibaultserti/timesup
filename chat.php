@@ -46,5 +46,12 @@ function postMessage(){
 
 }
 
+function getSolution(){
+    global $db;
+    $results = $db ->query("SELECT value FROM wordtoguess WHERE id=1");
+    $solution = $results -> fetchAll();
+    echo json_encode($solution);
+}
+
 
 ?>

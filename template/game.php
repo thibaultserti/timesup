@@ -8,9 +8,15 @@
 
 $(document).ready(function(){
     getMessages();
+    var solution = getSolution();
+    console.log("solution = "  + solution)
+    var solution = "chien";
     $("input").keyup(function(contexte){
         if (contexte.which == 13) {
             var msg = $("input").val();
+            if(msg==solution){
+                alert("Bien joué");
+            }
             postMessage(msg);
             
     }
@@ -18,6 +24,16 @@ $(document).ready(function(){
     });
 });
 
+
+function getSolution(){
+    const rAjax = new XMLHttpRequest();
+    rAjax.open("GET","chat.php");
+    rAjax.onload = function(){
+        const result = JSON.parse(rAjax.responseText);
+        console.log(result);
+    }
+    rAjax.send();
+}
 
 function getMessages(){
     const rAjax = new XMLHttpRequest();

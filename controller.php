@@ -17,6 +17,7 @@ if ($action = valider("action"))
 		case 'Play':
 			if (($pseudo = valider("pseudo"))&&($avatar = valider("avatar"))) {
 				$_SESSION['userId'] = createUser($pseudo, $avatar);
+				$_SESSION['pseudo'] = getPseudo($_SESSION['userId'])[0]['pseudo'];
 				if ($token = valider("token")) {
 					$_SESSION['gameId'] = tokenToGameId($token)[0]['id'];
 				} else {

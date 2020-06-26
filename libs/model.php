@@ -61,11 +61,15 @@ function createUser($pseudo, $avatar) {
     return SQLInsert($sql);
 }
 
+function getPseudo($userId) {
+	$sql = "SELECT pseudo FROM User WHERE id = '$userId'";
+    return parcoursRs(SQLSelect($sql));
+}
+
 /**
  * Return all the players in a game
  */
 function getPlayers($gameId) {
-	// TODO variable pour savoir qui parle
     $sql = "SELECT pseudo, points, id, avatar FROM User WHERE idGame = '$gameId'";
     return parcoursRs(SQLSelect($sql));
 }

@@ -3,8 +3,8 @@
 include_once("libs/maLibSQL.pdo.php");
 
 function generateToken() {
-	//TODO
-	return 1111;
+	$token = bin2hex(random_bytes(24));
+	return $token;
 }
 
 function tokenToGameId($token) {
@@ -14,7 +14,7 @@ function tokenToGameId($token) {
 
 function createGame($userId) {
 	$token = generateToken();
-	$sql = "INSERT INTO Game (token) VALUES ('$token')";
+	$sql = "INSERT INTO Game (token, playingUserId) VALUES ('$token', '$userId')";
     setValue_("User", "manager", 1, "id", $userId);
     return SQLInsert($sql);
 }
@@ -25,6 +25,8 @@ function updateGame($category, $maxPoints, $maxTime, $gameId) {
 			duration = '$maxTime',
 			pointsLimit = '$maxPoints'
 			WHERE id = '$gameId'";
+	$firstWord = parcoursRs(SQLSelect("SELECT id FROM wordtoguess WHERE categorie = '$category' ORDER BY RAND() LIMIT 1"))[0]['id'];
+	setValue_("game", "idWord", $firstWord, "id", $gameId);
 	return SQLUpdate($sql);
 }
 
@@ -59,11 +61,15 @@ function createUser($pseudo, $avatar) {
     return SQLInsert($sql);
 }
 
+function getPseudo($userId) {
+	$sql = "SELECT pseudo FROM User WHERE id = '$userId'";
+    return parcoursRs(SQLSelect($sql));
+}
+
 /**
  * Return all the players in a game
  */
 function getPlayers($gameId) {
-	// TODO variable pour savoir qui parle
     $sql = "SELECT pseudo, points, id, avatar FROM User WHERE idGame = '$gameId'";
     return parcoursRs(SQLSelect($sql));
 }

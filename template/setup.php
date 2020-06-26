@@ -6,8 +6,8 @@
 				<select name="category" id="">
 
 					<option value="animal">Animaux</option>
-					<option value="object"> Objets</option>
-					<option value="actor">Acteur.trices</option>
+					<option value="objet"> Objets</option>
+					<option value="acteur">Acteur.trices</option>
 				</select>
                 <select name="maxPoints" id="">
 

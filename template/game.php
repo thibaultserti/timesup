@@ -8,15 +8,32 @@
 
 $(document).ready(function(){
     getMessages();
+    var solution = getSolution();
+    console.log("solution = "  + solution)
+    var solution = "chien";
     $("input").keyup(function(contexte){
         if (contexte.which == 13) {
             var msg = $("input").val();
+            if(msg==solution){
+                alert("Bien joué");
+            }
             postMessage(msg);
             
     }
+    const interval = window.setInterval(getMessages, 3000);
     });
 });
 
+
+function getSolution(){
+    const rAjax = new XMLHttpRequest();
+    rAjax.open("GET","chat.php");
+    rAjax.onload = function(){
+        const result = JSON.parse(rAjax.responseText);
+        console.log(result);
+    }
+    rAjax.send();
+}
 
 function getMessages(){
     const rAjax = new XMLHttpRequest();
@@ -48,7 +65,7 @@ function getMessages(){
 
 function postMessage(msg){
     event.preventDefault();
-    const pseudo = "Erik";
+    const pseudo = $(".pseudo").text();
 
     const data = new FormData();
     data.append('pseudo', pseudo);
@@ -73,14 +90,23 @@ function postMessage(msg){
 
 </script>
 
+<?php 
 
+	echo "<script type=\"text/javascript\">";
+	echo "window.onload = function() {setTimer(";
+	echo getTimer($_SESSION['gameId'])[0]['duration'];
+	echo "000);};";
+    echo "</script>";
+    
+
+?>
 
 <div>
     <h1>Invite tes amis !</h1>
     <div class="box-timer">
         <img src="img/timer.svg">
-        <span id="remainingTime" onclick="setTimer(<?php echo getTimer($_SESSION['gameId'])[0]['duration'] ?>000)"> 
-			<?php echo getTimer($_SESSION['gameId'])[0]['duration'] ?>s
+        <span id="remainingTime"> 
+			<?php echo getTimer($_SESSION['gameId'])[0]['duration'] ?>
 		</span>
     </div>
 </div>
@@ -97,6 +123,11 @@ function postMessage(msg){
 
     <div class="box">
         <table class="leaderboard">
+            <div class = pseudo>
+            <?php
+	        echo $_SESSION['pseudo'];
+            ?>
+            </div>
             <tbody id ="messages">
 
                 <tr>

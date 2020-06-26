@@ -1,4 +1,7 @@
 //On change l'avatar choisi lorsqu'on clique sur les flèches gauche ou droite
+
+var pageTime;
+
 function changeAvatar(arrow) { //pour index.php
     console.log("change the avatar");
     //avatarListRight est pour la flèche droite et avatarListLeft pour la flèche gauche
@@ -20,6 +23,7 @@ function changeAvatar(arrow) { //pour index.php
 
 //On démarre un timer de time secondes et on affiche le nombre de secondes restantes
 function setTimer(time) { //pour game.php
+    pageTime = time;
     //A la fin du timer on appelle la fonction qui gère la fin du tour
     setTimeout(endRound, time+1); //on ajoute 1 à time pour faire un dernier appel à setInterval
     //le temps restant (en seconde) + 1s (pour le premier appel à showtime)
@@ -40,6 +44,7 @@ function endRound() {
     //Mettre à jour les scores, les cartes restantes à faire deviner
     //Il faut changer l'équipe dont c'est le tour, le joueur qui doit parler
     //etc
+    setTimer(pageTime);
 }
 
 //On affiche le temps

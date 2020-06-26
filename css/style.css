@@ -295,6 +295,9 @@ h1>a:hover {
     transform: scale(-1, 1);
 }
 
+.pseudo {
+    display: none;
+}
 
 /*for desktop*/
 

@@ -2,12 +2,22 @@
 
 </script>
 
+<?php 
+
+	echo "<script type=\"text/javascript\">";
+	echo "window.onload = function() {setTimer(";
+	echo getTimer($_SESSION['gameId'])[0]['duration'];
+	echo "000);};";
+	echo "</script>";
+
+?>
+
 <div>
     <h1>Invite tes amis !</h1>
     <div class="box-timer">
         <img src="img/timer.svg">
-        <span id="remainingTime" onclick="setTimer(<?php echo getTimer($_SESSION['gameId'])[0]['duration'] ?>000)"> 
-			<?php echo getTimer($_SESSION['gameId'])[0]['duration'] ?>s
+        <span id="remainingTime"> 
+			<?php echo getTimer($_SESSION['gameId'])[0]['duration'] ?>
 		</span>
     </div>
 </div>

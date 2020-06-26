@@ -24,13 +24,18 @@
     <div class="box">
         <div class="box-container">
             <h1><a href="#news">News</a></h1>
-            <p id="news">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, error atque? Laboriosam aspernatur culpa expedita ea, eveniet at accusamus, hic corporis dolor quis excepturi animi, distinctio possimus quisquam rerum nisi.</p>
+            <p id="news">Le site est terminé !</p>
 
             <h1><a href="#apropos">À propos</a></h1>
-            <p id="apropos">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam eius architecto nihil dolores quos dolor. Est ex praesentium minima saepe, minus quaerat, hic molestiae quam earum dolore vel. Soluta, dolores!</p>
+            <p id="apropos">Ce site a été développé par Thibault AYANIDES, Aymeric CÔME, Georges LE BELLIER, Nicolas ROLIN et Nino SEGALA</p>
 
             <h1><a href="#rules">Règles du jeu</a> </h1>
-            <p id="rules">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, aperiam a obcaecati, ducimus tempore facere quas sapiente cupiditate neque iure iusto blanditiis quis dolor at! Culpa quasi sequi asperiores itaque!
+            <p id="rules">
+            Vous pouvez jouer à une version simplifiée de Time’s up. Assurez-vous tout d’abord d’être relié vocalement avec les autres joueurs. On joue avec 40 mots appartenant à la catégorie choisie.
+Chaque mot deviné vous rapporte +2 points et chaque mots que vous avez fait deviner vous rapporte +1 point. Lorsqu’un mot est deviné, il est retiré du tas de carte. Les manches se terminent lorsque les 40 cartes ont été devinées.
+Dans la manche 1, chaque tour dure autant de secondes que choisi dans les paramètres de la partie. Il faut essayer de faire deviner / deviner autant de mots que possible ! C’est le premier joueur qui trouve la réponse qui gagne des points. Attention, il est interdit de prononcer des mots de la même famille, qui sonnent pareil, de traduire le mot ou de l’épeler. Les joueurs ont le droit à autant de propositions qu’ils le souhaitent.
+Dans la manche2, on joue avec les mêmes 40 cartes qu’à la manche 1. Attention, on n’a plus le droit qu’à un seul mot pour faire deviner la réponse ! Et chaque joueur n’a le droit qu’à une seule proposition.
+Le gagnant est le joueur qui a amassé le plus de points sur la manche 1 et 2.
             </p>
         </div>
     </div>

@@ -49,8 +49,11 @@ function getMessages(){
 function postMessage(msg){
     event.preventDefault();
     const pseudo = "Erik";
-    const data ={"pseudo":pseudo, 
-				"message":msg}
+
+    const data = new FormData();
+    data.append('pseudo', pseudo);
+    data.append('message', msg);
+
     const rAjax = new XMLHttpRequest();
     rAjax.open("POST","chat.php?task=write");
     console.log(data)

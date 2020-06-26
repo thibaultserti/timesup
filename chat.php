@@ -28,10 +28,8 @@ function getMessages(){
     echo json_encode($messages);
 }
 
-function postMessage(){
-    
+function postMessage(){    
     global $db;
-
     if(!array_key_exists("pseudo",$_POST) || !array_key_exists("message",$_POST)){
         echo json_encode(["status" => "error", "message" => "One field or many have not been sent"]);
         return;

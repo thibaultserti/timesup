@@ -17,17 +17,6 @@ $(document).ready(function(){
     });
 });
 
-function sendMsg(msg){
-    if(msg !=""){
-        console.log(msg);
-        $.ajax({
-            url : "chat.php",
-            type : "POST",
-            data : "message=" + msg
-        });
-        $('#messages').append("<tr><td class=\"td-name\">" + "Erik" + "</td><td class=\"td-chat\">" + msg + "</td></tr>"); // on ajoute le message dans la zone prévue
-    }
-};
 
 function getMessages(){
     const rAjax = new XMLHttpRequest();
@@ -48,7 +37,7 @@ function getMessages(){
           `  
         }).join('');
 
-        console.log(htmlStr);
+        //console.log(htmlStr);
         //$('#messages').innerHTML= htmlStr;
         document.querySelector('#messages').innerHTML = htmlStr;
     }
